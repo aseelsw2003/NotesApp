@@ -9,7 +9,7 @@ class CostomTextFeild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: KprimaryColor,
-              maxLines: maxlines,
+      maxLines: maxlines,
       decoration: InputDecoration(
         hintText: hint,
         hintStyle: TextStyle(color: KprimaryColor),

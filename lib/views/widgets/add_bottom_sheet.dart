@@ -14,8 +14,18 @@ class AddModalBottomsheet extends StatelessWidget {
           SizedBox(
             height: 24,
           ),
-          CostomTextFeild(),
+          CostomTextFeild(
+             hint: 'title',
+             
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          CostomTextFeild(
+            hint: 'content', maxlines: 5
+          ),
         ],
+        
       ),
     );
   }

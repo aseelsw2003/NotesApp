@@ -8,9 +8,9 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.only(top: 10),
       child: Container(
-        padding: EdgeInsets.only(top: 16,bottom: 16,left: 10),
+        padding: EdgeInsets.only(top: 24,bottom: 16,left: 10),
         decoration: BoxDecoration(
           color: Color(0xffFFCC80),
           borderRadius: BorderRadius.circular(16),
@@ -26,7 +26,7 @@ class NoteItem extends StatelessWidget {
                ),),
               
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: 10,bottom: 10),
+                padding: const EdgeInsets.only(top: 16,bottom: 16),
                 child: Text('build your career with tharwat samy',
                  style: TextStyle(
                   color: Colors.black.withOpacity(.5),

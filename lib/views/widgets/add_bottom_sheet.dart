@@ -11,28 +11,69 @@ class AddModalBottomsheet extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: SingleChildScrollView(
-        child: Column(
-          children: const[
-            SizedBox(
-              height: 24,
-            ),
-            CostomTextFeild(
-               hint: 'title',
-               
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            CostomTextFeild(
-              hint: 'content', maxlines: 5
-            ),
-            SizedBox(
-              height: 55,
-            ),
-            CustomButton(),
-          ],
-            
-        ),
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+GlobalKey <FormState> formKey = GlobalKey();
+AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+String? title, subtitle;
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+         const SizedBox(
+            height: 24,
+          ),
+          CostomTextFeild(
+            onSaved: (value){
+              title = value;
+            },
+             hint: 'title',
+             
+          ),
+          const  SizedBox(
+            height: 16,
+          ),
+          CostomTextFeild(
+            onSaved: (value){
+              subtitle = value;
+            },
+            hint: 'content', maxlines: 5
+          ),
+          SizedBox(
+            height: 55,
+          ),
+          CustomButton(
+            onTap: (){
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              }else{
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  
+                });
+              }
+            },
+          ),
+        ],
+          
       ),
     );
   }
